@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Editor from "@monaco-editor/react";
 import Select from "react-select";
+import { GoogleGenAI } from "@google/genai";
 
 const App = () => {
   const options = [
@@ -68,6 +69,10 @@ const App = () => {
     }),
   };
 
+  const ai = new GoogleGenAI({
+    apiKey: import.meta.env.VITE_GEMINI_API_KEY,
+  });
+
   return (
     <>
       <Navbar />
@@ -85,9 +90,7 @@ const App = () => {
               options={options}
               styles={customStyles}
             />
-            <button className="btnNormal bg-zinc-900 min-w-[120px] transition-all hover:bg-zinc-800">
-              Fix Code
-            </button>
+
             <button
               onClick={() => {
                 if (code === "") {
@@ -110,6 +113,12 @@ const App = () => {
               setCode(e);
             }}
           />
+        </div>
+
+        <div className="right overflow-scroll !p-[10px] bg-zinc-900 w-[50%] h-[101%]">
+          <div className="topTab border-b-[1px] border-t-[1px] border-[#27272a] flex items-center justif-between h-[60px]">
+            <p className="font-[700] text-[17px]">Response</p>
+          </div>
         </div>
       </div>
     </>
