@@ -11,4 +11,26 @@ body {
   box-sizing: border-box;
   background-color: #000;
   color: #fff;
+  overflow: hidden;
+}
+
+.css-b62m3t-container {
+  width: 65%;
+}
+
+.css-1mi3hag-control {
+  width: 100%;
+}
+
+.css-sl4pg4-control {
+  width: 30% !important;
+}
+
+.btnNormal {
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
 }
